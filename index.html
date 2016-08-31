@@ -1,0 +1,142 @@
+<!doctype html>
+
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+	<title>Resource Planner</title>
+	<meta name="author" content="Kiandra" />
+	<meta name="description" content="A simple resource planning for allocating a team" />
+
+	<meta name="Copyright" content="Kiandra" />
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link rel="shortcut icon" href="favicon.ico" />
+
+
+	<!--link rel="stylesheet" href="assets/css/reset.css" /-->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
+	
+
+	<script src="assets/js/libs/modernizr-3.2.0.base.js"></script>
+
+</head>
+
+<body ng-app="myapp" ng-controller="ListController">
+
+<div class="wrapper"><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
+
+	<header>
+
+	<h1>Resource Planner</h1>
+
+	<button ng-click="hideAddRow = !hideAddRow">Toggle Inputs</button>
+
+	</header>
+
+
+	<section>
+		<!-- Header -->
+		<div class="row header-row">
+			<div class="col-sm-2">
+				<h4>Role</h4>
+			</div>
+			<div class="col-sm-2">
+				<h4>Inception</h4>
+			</div>
+			<div class="col-sm-2">
+				<h4>Build</h4>
+			</div>
+			<div class="col-sm-2">
+				<h4>Stabilisation</h4>
+			</div>
+			<div class="col-sm-2">
+				<h4>Implementation</h4>
+			</div>
+		</div>
+<hr>
+		<!-- Content -->
+		<form>
+				<div class="row add-row" ng-show="!hideAddRow">
+					<div class="col-sm-2">
+						<div class="form-group">
+							<select class="form-control" ng-model="resourceDetail.role" ng-options="opt.label as opt.value for opt in myoptions" required>
+								<option value="">-- Select a Role --</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="input-group">
+							<input type="text" class="form-control" ng-model="resourceDetail.inception" ng-init="resourceDetail.inception ='100'" required />
+							<span class="input-group-addon">%</span>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="input-group">
+							<input type="text" class="form-control" ng-model="resourceDetail.build" ng-init="resourceDetail.build ='100'" required>
+							<span class="input-group-addon">%</span>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="input-group">
+							<input type="text" class="form-control" ng-model="resourceDetail.stabilisation" ng-init="resourceDetail.stabilisation ='100'" required>
+							<span class="input-group-addon">%</span>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="input-group">
+							<input type="text" class="form-control" ng-model="resourceDetail.implement" ng-init="resourceDetail.implement ='100'" required>
+							<span class="input-group-addon">%</span>
+						</div>
+					</div>
+					<div class="col-sm-1">
+						<button ng-click="addNew()">add</button>
+					</div>
+				</div>
+
+				<div class="row" ng-repeat="resourceDetail in resourceDetails">
+					<div class="col-sm-2">
+                    	<p>{{resourceDetail.role}}</p>
+                	</div>
+					<div class="col-sm-2">
+						<p>{{resourceDetail.inception}}% Allocation</p>
+                	</div>
+                	<div class="col-sm-2">
+                		<p>{{resourceDetail.build}}% Allocation</p>
+                	</div>
+                	<div class="col-sm-2">
+                		<p>{{resourceDetail.stabilisation}}% Allocation</p>
+                	</div>
+                	<div class="col-sm-2">
+                		<p>{{resourceDetail.implement}}% Allocation</p>
+                	</div>
+                	<div class="col-sm-1">
+						<button ng-click="remove($index)">remove</button>
+					</div>
+                </div>
+		</form>
+
+	</section>
+
+</div>
+
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+
+</body>
+</html>
