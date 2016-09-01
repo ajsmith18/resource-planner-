@@ -65,33 +65,69 @@ body {
 
 // Colours
 // ------------------------------------------------------//
-.ba p { 
-	border-color: @colourBA;
-	color: @colourBA;
+
+.row-results div.role p {
+	&:after {
+		font-family: "Ionicons";
+		font-size: 15px;
+		float: right;
+	}
 }
-.im p { 
-	border-color: @colourIM;
-	color: @colourIM;
+
+.ba {
+	p { 
+		border-color: @colourBA;
+		color: @colourBA;
+	}
+
+	div.role p:after { content: "\f453";	}
 }
-.sa p { 
-	border-color: @colourSA;
-	color: @colourSA;
+.im {
+	p {
+		border-color: @colourIM;
+		color: @colourIM;
+	}
+
+	div.role p:after { content: "\f45a";	}
 }
-.sd p { 
-	border-color: @colourSD;
-	color: @colourSD;
+.sa {
+	p {
+		border-color: @colourSA;
+		color: @colourSA;
+	}
+
+	div.role p:after { content: "\f229";	}
 }
-.ux p { 
-	border-color: @colourUX;
-	color: @colourUX;
+.sd {
+	p { 
+		border-color: @colourSD;
+		color: @colourSD;
+	}
+
+	div.role p:after { content: "\f2be";	}
 }
-.qa p { 
-	border-color: @colourQA;
-	color: @colourQA;
+.ux {
+	p { 
+		border-color: @colourUX;
+		color: @colourUX;
+	}
+
+	div.role p:after { content: "\f4d5";	}
 }
-.st p { 
-	border-color: @colourST;
-	color: @colourST;
+.qa {
+	p { 
+		border-color: @colourQA;
+		color: @colourQA;
+	}
+	div.role p:after { content: "\f2be";	}
+}
+.st {
+	p {
+		border-color: @colourST;
+		color: @colourST;
+	}
+
+	div.role p:after { content: "\f100";	}
 }
 
 
