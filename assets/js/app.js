@@ -3,32 +3,53 @@ var app = angular.module("myapp", []);
 
 		$scope.resourceDetails = [
 	        {
-	            'role':'Software Developer',
+	            'role':{val: 'sd', label: 'Software developer'},
 	            'inception':'100',
 	            'build':'100',
 	            'stabilisation':'100',
 	            'implement':'100'
 	        }];
 
-		$scope.myoptions = [
-			{value: 'Business Analyist', label: 'Business Analyist'},
-			{value: 'Iteration manager', label: 'Iteration manager'},
-			{value: 'Solution architect', label: 'Solution architect'},
-			{value: 'Software developer', label: 'Software developer'},
-			{value: 'User experience designer', label: 'User experience designer'},
-			{value: 'Quality assurance analyst', label: 'Quality assurance analyst'},
-			{value: 'Security tester', label: 'Security tester'},
-		];
+		$scope.items = [{
+		  id: 1,
+		  label: 'Business Analyst',
+		  val: 'ba'
+		}, {
+		  id: 2,
+		  label: 'Iteration Manager',
+		  val: 'im'
+		}, {
+		  id: 3,
+		  label: 'Solution Architect',
+		  val: 'sa'
+		}, {
+		  id: 4,
+		  label: 'Software Developer',
+		  val: 'sd'
+		}, {
+		  id: 5,
+		  label: 'User Experience Designer',
+		  val: 'ux'
+		}, {
+		  id: 6,
+		  label: 'Quality Assurance Analyst',
+		  val: 'qa'
+		}, {
+		  id: 7,
+		  label: 'Security Tester',
+		  val: 'st'
+		}];
 
 		//$scope.resourceDetail.role = $scope.myoptions[1].label;
-
-	    
+    
     
         $scope.addNew = function(){
         	var isRole = angular.isDefined($scope.resourceDetail.role);
 
+        	console.log($scope.resourceDetail.role)
+
         	if(isRole) {
-        		
+
 	            $scope.resourceDetails.push({ 
 	                'role': $scope.resourceDetail.role, 
 	                'inception': $scope.resourceDetail.inception,

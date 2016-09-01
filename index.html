@@ -28,6 +28,8 @@
 
 
 	<!--link rel="stylesheet" href="assets/css/reset.css" /-->
+	
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
 	
@@ -38,13 +40,13 @@
 
 <body ng-app="myapp" ng-controller="ListController">
 
-<div class="wrapper"><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
+<div class="wrapper">
 
 	<header>
 
-	<h1>Resource Planner</h1>
+	<h1>Kiandra<span>Resource Planner</span></h1>
 
-	<button ng-click="hideAddRow = !hideAddRow">Toggle Inputs</button>
+	<button class="toggle" ng-click="hideAddRow = !hideAddRow">Toggle Save Mode</button>
 
 	</header>
 
@@ -52,8 +54,8 @@
 	<section>
 		<!-- Header -->
 		<div class="row header-row">
-			<div class="col-sm-2">
-				<h4>Role</h4>
+			<div class="col-sm-3">
+				<h4 class="standard">Role</h4>
 			</div>
 			<div class="col-sm-2">
 				<h4>Inception</h4>
@@ -68,13 +70,13 @@
 				<h4>Implementation</h4>
 			</div>
 		</div>
-<hr>
+
 		<!-- Content -->
 		<form>
 				<div class="row add-row" ng-show="!hideAddRow">
-					<div class="col-sm-2">
+					<div class="col-sm-3">
 						<div class="form-group">
-							<select class="form-control" ng-model="resourceDetail.role" ng-options="opt.label as opt.value for opt in myoptions" required>
+							<select class="form-control" ng-model="resourceDetail.role" ng-options="item as item.label for item in items track by item.id" required>
 								<option value="">-- Select a Role --</option>
 							</select>
 						</div>
@@ -104,28 +106,30 @@
 						</div>
 					</div>
 					<div class="col-sm-1">
-						<button ng-click="addNew()">add</button>
+						<i ng-click="addNew()" ng-show="!hideAddRow" class="button green ion-ios-plus-outline"></i>
 					</div>
 				</div>
 
-				<div class="row" ng-repeat="resourceDetail in resourceDetails">
-					<div class="col-sm-2">
-                    	<p>{{resourceDetail.role}}</p>
-                	</div>
-					<div class="col-sm-2">
-						<p>{{resourceDetail.inception}}% Allocation</p>
-                	</div>
-                	<div class="col-sm-2">
-                		<p>{{resourceDetail.build}}% Allocation</p>
-                	</div>
-                	<div class="col-sm-2">
-                		<p>{{resourceDetail.stabilisation}}% Allocation</p>
-                	</div>
-                	<div class="col-sm-2">
-                		<p>{{resourceDetail.implement}}% Allocation</p>
-                	</div>
-                	<div class="col-sm-1">
-						<button ng-click="remove($index)">remove</button>
+				<div class="row row-results" ng-repeat="resourceDetail in resourceDetails">
+					<div class="{{resourceDetail.role.val}}">
+						<div class="col-sm-3">
+	                    	<p>{{resourceDetail.role.label}}</p>
+	                	</div>
+						<div class="col-sm-2">
+							<p style="width: {{resourceDetail.inception }}%">{{resourceDetail.inception}}% </p>
+	                	</div>
+	                	<div class="col-sm-2">
+	                		<p style="width: {{resourceDetail.build }}%">{{resourceDetail.build}}% </p>
+	                	</div>
+	                	<div class="col-sm-2">
+	                		<p style="width: {{resourceDetail.stabilisation }}%">{{resourceDetail.stabilisation}}% </p>
+	                	</div>
+	                	<div class="col-sm-2">
+	                		<p style="width: {{resourceDetail.implement }}%">{{resourceDetail.implement}}% </p>
+	                	</div>
+	                	<div class="col-sm-1">
+							<i ng-click="remove($index)" ng-show="!hideAddRow" class="button red ion-ios-close-outline"></i>
+						</div>
 					</div>
                 </div>
 		</form>

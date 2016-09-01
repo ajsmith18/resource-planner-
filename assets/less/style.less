@@ -1,0 +1,196 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700';
+@font-face {
+	font-family: 'gotham-book';
+	src: url('../fonts/gotham-book.eot');
+	src: local('☺'), url('../fonts/gotham-book.woff') format('woff'), url('../fonts/gotham-book.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// Variables 
+// ------------------------------------------------------//
+
+// Kiandra Colours
+
+@colourPrimary: #1661ad;
+@colourPrimaryTwo: #009fa8;
+@colourPrimaryThree: #6ea634;
+
+@colourSecondary: #231f20;
+@colourSecondaryTwo: #d1d3d4;
+@colourWhite: #ffffff;
+@colourError: red;
+
+@colourBA: @colourPrimary;
+@colourIM: @colourPrimaryThree;
+@colourSA: @colourPrimaryTwo;
+@colourSD: @colourPrimary;
+@colourUX: @colourPrimaryTwo;
+@colourQA: @colourPrimaryThree;
+@colourST: @colourPrimary;
+
+
+@fontMain: 'Open Sans', sans-serif;
+@fontHeading: 'gotham-book', serif;
+
+@radius: 20px;
+
+@input-height: 30px;
+@padding: 10px;
+
+
+
+
+// Page Layout 
+// ------------------------------------------------------//
+body {
+	background: #fff;
+	color: @colourSecondary;
+	font-family: @fontMain;
+}
+
+.wrapper {
+	padding: 50px 100px;
+	margin: 0 auto;
+}
+
+.row-results {
+	margin-bottom: @padding;
+}
+.add-row {
+	padding-bottom: @padding*2;
+	margin-bottom: @padding*3;
+	border-bottom: 1px solid #eee;
+}
+
+// Colours
+// ------------------------------------------------------//
+.ba p { 
+	border-color: @colourBA;
+	color: @colourBA;
+}
+.im p { 
+	border-color: @colourIM;
+	color: @colourIM;
+}
+.sa p { 
+	border-color: @colourSA;
+	color: @colourSA;
+}
+.sd p { 
+	border-color: @colourSD;
+	color: @colourSD;
+}
+.ux p { 
+	border-color: @colourUX;
+	color: @colourUX;
+}
+.qa p { 
+	border-color: @colourQA;
+	color: @colourQA;
+}
+.st p { 
+	border-color: @colourST;
+	color: @colourST;
+}
+
+
+
+// Buttons
+// ------------------------------------------------------//
+i.button {
+	cursor: pointer;
+	line-height: @input-height;
+	font-size: 30px;
+
+	&.red {
+		color: @colourError;
+	}
+
+	&.green {
+		color: @colourPrimaryThree;
+	}
+
+	&:hover {
+
+	}
+}
+
+button.toggle {
+	background: @colourPrimary;
+	border: none;
+	border-radius: @radius;
+	display: block;
+	padding: 0 @padding;
+	height: @input-height;
+	color: @colourWhite;
+	position: absolute;
+	top: @padding;
+	right: @padding;
+}
+
+// Forms
+// ------------------------------------------------------//
+.input-group,
+.form-group {
+	.form-control {
+		background: fade(@colourPrimary, .05);
+		border-radius: @radius;
+		border-color: @colourPrimary;
+		box-shadow: none;
+	}
+	.input-group-addon {
+		background: @colourPrimary;
+		border-color: @colourPrimary;
+		border-radius: 0 @radius @radius 0;
+		color: #fff;
+	}
+	select {
+		border-radius: @radius;
+		-webkit-appearance: none;
+	}
+}
+
+
+// Typography 
+// ------------------------------------------------------//
+
+h1 {
+	color: @colourPrimary;
+	font-family: @fontHeading;
+	font-size: 32px;
+	text-align: center;
+	text-transform: uppercase;
+
+	span {
+		color: fade(@colourSecondary, 50%);
+		font-size: 75%;
+		display: block;
+		text-transform: none;
+	}
+
+}
+
+h4 {
+	font-family: @fontHeading;
+	color: fade(@colourSecondary, 50);
+	text-align: center;
+	border-bottom: 2px solid fade(@colourSecondary, 10);
+	border-radius: @radius;
+	padding: 5px 0 15px 0;
+
+	&.standard {
+		border: none;
+	}
+}
+
+p {
+	border: 1px solid @colourPrimary;
+	border-radius: @radius;
+	color: @colourWhite;
+	display: block;
+	line-height: @input-height;
+	margin: 0;
+	padding: 0 10px;
+	text-align: left;
+}
