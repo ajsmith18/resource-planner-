@@ -21,13 +21,15 @@
 @colourWhite: #ffffff;
 @colourError: red;
 
+
+@colourCO: #666;
 @colourBA: @colourPrimary;
-@colourIM: @colourPrimaryThree;
-@colourSA: @colourPrimaryTwo;
-@colourSD: @colourPrimary;
-@colourUX: @colourPrimaryTwo;
-@colourQA: @colourPrimaryThree;
-@colourST: @colourPrimary;
+@colourIM: @colourPrimaryTwo;
+@colourSA: @colourPrimaryThree;
+@colourSD: #e08727;
+@colourUX: #bf4dbb;
+@colourQA: #b1b550;
+@colourST: #cb194b;
 
 
 @fontMain: 'Open Sans', sans-serif;
@@ -67,20 +69,47 @@ body {
 // ------------------------------------------------------//
 
 .row-results div.role p {
+	font-size: normal;
+
 	&:after {
 		font-family: "Ionicons";
-		font-size: 15px;
+		font-size: 14px;
 		float: right;
+		width: 20px;
+		text-align: center;
 	}
 }
+.pm {
+	p { 
+		border-color: @colourBA;
+		color: @colourBA;
+	}
 
+	div.role p:after { content: "\f3c8";	}
+}
+.co {
+	p { 
+		border-color: @colourCO;
+		color: @colourCO;
+	}
+
+	div.role p:after { content: "\f213";	}
+}
+.lsd {
+	p { 
+		border-color: @colourSD;
+		color: @colourSD;
+	}
+
+	div.role p:after { content: "\f466";	}
+}
 .ba {
 	p { 
 		border-color: @colourBA;
 		color: @colourBA;
 	}
 
-	div.role p:after { content: "\f453";	}
+	div.role p:after { content: "\f3e8";	}
 }
 .im {
 	p {
@@ -104,7 +133,7 @@ body {
 		color: @colourSD;
 	}
 
-	div.role p:after { content: "\f2be";	}
+	div.role p:after { content: "\f466";	}
 }
 .ux {
 	p { 
@@ -225,6 +254,7 @@ p {
 	border-radius: @radius;
 	color: @colourWhite;
 	display: block;
+	font-size: 12px;
 	line-height: @input-height;
 	margin: 0;
 	padding: 0 10px;

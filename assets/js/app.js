@@ -12,32 +12,44 @@ var app = angular.module("myapp", []);
 
 		$scope.items = [{
 		  id: 1,
+		  label: 'Project Manager',
+		  val: 'pm'
+		},{
+		  id: 2,
 		  label: 'Business Analyst',
 		  val: 'ba'
 		}, {
-		  id: 2,
+		  id: 3,
 		  label: 'Iteration Manager',
 		  val: 'im'
 		}, {
-		  id: 3,
+		  id: 4,
 		  label: 'Solution Architect',
 		  val: 'sa'
 		}, {
-		  id: 4,
+		  id: 5,
 		  label: 'Software Developer',
 		  val: 'sd'
 		}, {
-		  id: 5,
+		  id: 6,
+		  label: 'Lead Software Developer',
+		  val: 'lsd'
+		}, {
+		  id: 7,
 		  label: 'User Experience Designer',
 		  val: 'ux'
 		}, {
-		  id: 6,
+		  id: 8,
 		  label: 'Quality Assurance Analyst',
 		  val: 'qa'
 		}, {
-		  id: 7,
+		  id: 9,
 		  label: 'Security Tester',
 		  val: 'st'
+		}, {
+		  id: 10,
+		  label: 'Contractor',
+		  val: 'co'
 		}];
 
 		//$scope.resourceDetail.role = $scope.myoptions[1].label;
@@ -45,8 +57,6 @@ var app = angular.module("myapp", []);
     
         $scope.addNew = function(){
         	var isRole = angular.isDefined($scope.resourceDetail.role);
-
-        	console.log($scope.resourceDetail.role)
 
         	if(isRole) {
 
@@ -67,6 +77,10 @@ var app = angular.module("myapp", []);
         $scope.remove = function($index){
             $scope.resourceDetails.splice( $index, 1 );
         };
+
+        $scope.showAllocation = function(num) {
+       		return (num > 1);
+        }
 	    
 	          
 	}]);

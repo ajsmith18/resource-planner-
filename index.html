@@ -76,37 +76,37 @@
 				<div class="row add-row" ng-show="!hideAddRow">
 					<div class="col-sm-3">
 						<div class="form-group">
-							<select class="form-control" ng-model="resourceDetail.role" ng-options="item as item.label for item in items track by item.id" required>
+							<select class="form-control" ng-model="resourceDetail.role" ng-options="item as item.label for item in items track by item.id" tabindex="1" required>
 								<option value="">-- Select a Role --</option>
 							</select>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="input-group">
-							<input type="text" class="form-control" ng-model="resourceDetail.inception" ng-init="resourceDetail.inception ='100'" required />
+							<input type="number" class="form-control" min="0" max="100" ng-model="resourceDetail.inception" ng-init="resourceDetail.inception = 100" tabindex="1" required />
 							<span class="input-group-addon">%</span>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="input-group">
-							<input type="text" class="form-control" ng-model="resourceDetail.build" ng-init="resourceDetail.build ='100'" required>
+							<input type="number" class="form-control" min="0" max="100" ng-model="resourceDetail.build" ng-init="resourceDetail.build =100" tabindex="1" required>
 							<span class="input-group-addon">%</span>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="input-group">
-							<input type="text" class="form-control" ng-model="resourceDetail.stabilisation" ng-init="resourceDetail.stabilisation ='100'" required>
+							<input type="number" class="form-control" min="0" max="100" ng-model="resourceDetail.stabilisation" ng-init="resourceDetail.stabilisation =100" tabindex="1" required>
 							<span class="input-group-addon">%</span>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="input-group">
-							<input type="text" class="form-control" ng-model="resourceDetail.implement" ng-init="resourceDetail.implement ='100'" required>
+							<input type="number" class="form-control" min="0" max="100" ng-model="resourceDetail.implement" ng-init="resourceDetail.implement =100" tabindex="1" required>
 							<span class="input-group-addon">%</span>
 						</div>
 					</div>
 					<div class="col-sm-1">
-						<i ng-click="addNew()" ng-show="!hideAddRow" class="button green ion-ios-plus-outline"></i>
+						<i ng-click="addNew()" ng-show="!hideAddRow" class="button green ion-ios-plus-outline" title="Add" tabindex="1"></i>
 					</div>
 				</div>
 
@@ -116,19 +116,19 @@
 	                    	<p>{{resourceDetail.role.label}}</p>
 	                	</div>
 						<div class="col-sm-2">
-							<p style="width: {{resourceDetail.inception }}%">{{resourceDetail.inception}}% </p>
+							<p style="width: {{resourceDetail.inception }}%" ng-if="showAllocation(resourceDetail.inception)">{{resourceDetail.inception}}% </p>
 	                	</div>
 	                	<div class="col-sm-2">
-	                		<p style="width: {{resourceDetail.build }}%">{{resourceDetail.build}}% </p>
+	                		<p style="width: {{resourceDetail.build }}%" ng-if="showAllocation(resourceDetail.build)">{{resourceDetail.build}}% </p>
 	                	</div>
 	                	<div class="col-sm-2">
-	                		<p style="width: {{resourceDetail.stabilisation }}%">{{resourceDetail.stabilisation}}% </p>
+	                		<p style="width: {{resourceDetail.stabilisation }}%" ng-if="showAllocation(resourceDetail.stabilisation)">{{resourceDetail.stabilisation}}% </p>
 	                	</div>
 	                	<div class="col-sm-2">
-	                		<p style="width: {{resourceDetail.implement }}%">{{resourceDetail.implement}}% </p>
+	                		<p style="width: {{resourceDetail.implement }}%" ng-if="showAllocation(resourceDetail.implement)">{{resourceDetail.implement}}% </p>
 	                	</div>
 	                	<div class="col-sm-1">
-							<i ng-click="remove($index)" ng-show="!hideAddRow" class="button red ion-ios-close-outline"></i>
+							<i ng-click="remove($index)" ng-show="!hideAddRow" class="button red ion-ios-close-outline" title="Remove"></i>
 						</div>
 					</div>
                 </div>
